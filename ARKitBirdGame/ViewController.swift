@@ -47,7 +47,16 @@ class ViewController: UIViewController {
 extension ViewController : ARSKViewDelegate {
     
     func view(_ view: ARSKView, nodeFor anchor: ARAnchor) -> SKNode? {
-      return SKNode()
+        
+        if GameScene.gameState == .spawnBirds {
+            let bird = Bird()
+            bird.setup()
+            return bird
+        } else{
+            return SKNode()
+        }
+        
+     
     }
     
     
